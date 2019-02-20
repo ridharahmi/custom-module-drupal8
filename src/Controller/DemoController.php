@@ -1,22 +1,21 @@
 <?php
 
-
-
-namespace Drupal\Demo\Controller;
+/**
+ * custom module drupal 8
+ */
+namespace Drupal\demo\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 
-class DemoController extends \Drupal\Core\Controller\ControllerBase {
+class DemoController extends ControllerBase {
 
-    public function description()
-    {
 
-        $build =  array (
-          '#type'   => '#markup',
-          '#markup' =>  t('hello , this is module drupal 8')
-        );
+    public function content() {
+        $build = [
+            '#type' => '#markup',
+            '#markup' => t('Hello , this is project drupal 8'),
+        ];
         return $build;
     }
 
 }
-
