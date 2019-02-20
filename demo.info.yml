@@ -1,0 +1,11 @@
+name: demo
+type: module
+description: 'Custom date time drupal 8'
+package: Custom
+core: 8.x
+version: version
+
+
+dependencies:
+  - devel
+  - devel_generate
