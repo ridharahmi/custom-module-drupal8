@@ -1,0 +1,5 @@
+demo.linkhello:
+  title: 'Lien Custom Module'
+  description: 'Configue custom lien module demo.'
+  parent: system.admin_structure
+  route_name: demo.content

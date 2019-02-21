@@ -1,6 +1,10 @@
-/***
-* custom module drupal 8
-***/
-** install 
-** config 
-**
+/**
+*
+* Custom module drupal 8
+*
+*/
+
+** Module info
+** Module routing
+** Controller module
+** Custom link module
