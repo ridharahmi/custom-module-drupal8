@@ -14,8 +14,7 @@ class DemoController extends ControllerBase
     public function content()
     {
         $build = [
-            '#type' => '#markup',
-            '#markup' => t('Hello , this is project drupal 8'),
+            '#markup' => $this->t('Hello , this is project drupal 8')
         ];
         return $build;
     }
