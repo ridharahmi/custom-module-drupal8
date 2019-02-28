@@ -21,8 +21,9 @@ class ContactForm extends FormBase
 
         $form['name'] = array(
             '#type' => 'textfield',
-            '#title' => 'Nom',
+            '#title' => $this->t('Name'),
             '#required' => true,
+            '#default_value' => ' ',
             '#wrapper_attributes' => ['class' => 'col-md-6 col-xs-12']
         );
         $form['comment'] = array(
@@ -30,7 +31,7 @@ class ContactForm extends FormBase
             '#maxlength' => 64,
             '#size' => 64,
             '#required' => true,
-            '#title_display' => false,
+            '#title_display' => true,
             '#placeholder' => 'Commentaire',
             '#wrapper_attributes' => ['class' => 'col-md-3 col-xs-6'],
             '#id' => 'comment'
@@ -39,6 +40,7 @@ class ContactForm extends FormBase
             '#type' => 'submit',
             '#value' => 'Envoyer le commentaire',
             '#button_type' => 'primary',
+            '#class' => 'btn btn-primary',
             '#id' => 'submit-btn'
         );
 
