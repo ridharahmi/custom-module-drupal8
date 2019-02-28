@@ -4,4 +4,12 @@ demo.content:
     _controller: '\Drupal\demo\Controller\DemoController::content'
     _title: 'Hello, this is custom module drupal8'
   requirements:
-    _permission: 'access content' 
+    _permission: 'access content'
+
+demo.contact_form:
+      path: '/demo/contact_form'
+      defaults:
+        _form: '\Drupal\demo\Form\ContactForm'
+        _title: 'formulaire contact '
+      requirements:
+        _permission: 'access content'
