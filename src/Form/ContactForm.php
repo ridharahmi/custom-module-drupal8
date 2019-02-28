@@ -32,7 +32,7 @@ class ContactForm extends FormBase
             '#size' => 64,
             '#required' => true,
             '#title_display' => true,
-            '#placeholder' => 'Commentaire',
+            '#placeholder' => 'Commentaire ...',
             '#wrapper_attributes' => ['class' => 'col-md-3 col-xs-6'],
             '#id' => 'comment'
         );
@@ -53,6 +53,12 @@ class ContactForm extends FormBase
         if (strlen($formState->getValue('name')) < 3) {
             $formState->setErrorByName('name', 'Le nom doit avoir 3 caractères minimum.');
         }
+
+        // Check if comment contains 3 chars
+        if (strlen($formState->getValue('comment')) < 50) {
+            $formState->setErrorByName('comment', 'Le comment doit avoir 50 caractères minimum.');
+        }
+
     }
 
 
