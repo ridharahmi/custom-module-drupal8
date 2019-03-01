@@ -28,7 +28,9 @@ class ContactForm extends FormBase
         );
         $form['comment'] = array(
             '#type' => 'textarea',
-            '#maxlength' => 64,
+            '#maxlength' => 100,
+            '#minlength' => 20,
+            '#rows' => 4,
             '#size' => 64,
             '#required' => true,
             '#title_display' => true,
@@ -54,7 +56,7 @@ class ContactForm extends FormBase
             $formState->setErrorByName('name', 'Le nom doit avoir 3 caractères minimum.');
         }
 
-        // Check if comment contains 3 chars
+        // Check if comment contains 50 chars
         if (strlen($formState->getValue('comment')) < 50) {
             $formState->setErrorByName('comment', 'Le comment doit avoir 50 caractères minimum.');
         }
@@ -64,6 +66,13 @@ class ContactForm extends FormBase
 
     public function submitForm(array &$form, FormStateInterface $form_state)
     {
+        dsm($form_state->getValues());
+//        $this->messenger->addMessage('Title: ' . $form_state->getValue('title'));
+//        $this->messenger->addMessage('Accept: ' . $form_state->getValue('accept'));
+//
+//        // Redirect to home
+//        $form_state->setRedirect('<front>');
+//        return;
 
     }
 
