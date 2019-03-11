@@ -7,6 +7,7 @@
 namespace Drupal\demo\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\node\Entity\Node;
 
 class DemoController extends ControllerBase
 {
@@ -35,8 +36,9 @@ class DemoController extends ControllerBase
 
         $query = \Drupal::entityQuery('node')
             ->condition('type', 'article')
-            ->condition('uid', 0)
-            ->condition('title', 'Ibidem', 'CONTAINS');
+            ->condition('uid', 0);
+        //condition('title', 'Ibidem', 'CONTAINS') %text%
+        //condition('field.value', value)
         $filter_nids = $query->execute();
 
 
@@ -44,9 +46,22 @@ class DemoController extends ControllerBase
         $markup .= '<br /> User nid : ' . implode(', ', $uids);
         $markup .= '<br /> Comment nid : ' . implode(', ', $cids);
         $markup .= '<br /> Webform nid : ' . implode(', ', $fids);
-        $markup .= '<br /> Filter Articles : ' . implode(', ', $filter_nids);
-        //dsm($nids);
+        $markup .= '<br /> Filter Blog : ' . implode(', ', $filter_nids);
 
+        $node = Node::load(reset($filter_nids));
+        $markup .= '<br /><br />';
+        $markup .= '<b>Description Blog :</b> ' . $node->body->value;
+
+
+        $nodes = Node::loadMultiple($filter_nids);
+        $markup .= '<br />';
+        foreach ($nodes as $node) {
+            $markup .= '<br />';
+            $markup .= '<b>Blog ['. $node->nid->value .' ] : <=======> </b> ' . $node->title->value;
+        }
+
+
+        //dsm($nids);
         $build = ['#markup' => $markup];
         return $build;
     }
