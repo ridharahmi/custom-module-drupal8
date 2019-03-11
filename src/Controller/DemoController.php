@@ -52,14 +52,30 @@ class DemoController extends ControllerBase
         $markup .= '<br /><br />';
         $markup .= '<b>Description Blog :</b> ' . $node->body->value;
 
+        //update node
+        /*
+         * $node->set('title', $node->title->value. '_New_text');
+           $node->save();
+            $markup .= '<br /><b>New Title Blog :</b> ' . $node->title->value;
+        */
+
 
         $nodes = Node::loadMultiple($filter_nids);
-        $markup .= '<br />';
-        foreach ($nodes as $node) {
-            $markup .= '<br />';
-            $markup .= '<b>Blog ['. $node->nid->value .' ] : <=======> </b> ' . $node->title->value;
+        $markup .= '<br /><table>';
+        foreach ($nodes as $nod) {
+            $markup .= '<tr>';
+            $markup .= '<td><b>Blog [' . $nod->nid->value . ' ] </b></td><td>' . $nod->title->value . '</td>';
+            $markup .= '</tr>';
         }
+        $markup .= '</table>';
 
+        $result = db_query('SELECT field_image_alt'
+            . ' FROM {node__field_image}'
+            . ' WHERE entity_id= :nid', [':nid' => 23]);
+
+        foreach ($result as $record) {
+            $markup .= '<br><h2> <b>Selection Node: </b>' . $record->field_image_alt . ' </h2>';
+        }
 
         //dsm($nids);
         $build = ['#markup' => $markup];
