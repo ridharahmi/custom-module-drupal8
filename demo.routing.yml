@@ -7,9 +7,17 @@ demo.content:
     _permission: 'access content'
 
 demo.contact_form:
-      path: '/demo/contact_form'
-      defaults:
-        _form: '\Drupal\demo\Form\ContactForm'
-        _title: 'formulaire contact '
-      requirements:
-        _permission: 'access content'
+  path: '/demo/contact_form'
+  defaults:
+    _form: '\Drupal\demo\Form\ContactForm'
+    _title: 'formulaire contact '
+  requirements:
+    _permission: 'access content'
+
+demo.requests:
+  path: '/demo/requests'
+  defaults:
+    _controller: '\Drupal\demo\Controller\DemoController::requests'
+    _title: 'Requests'
+  requirements:
+    _permission: 'access content'

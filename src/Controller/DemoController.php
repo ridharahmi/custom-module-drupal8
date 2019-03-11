@@ -19,4 +19,26 @@ class DemoController extends ControllerBase
         return $build;
     }
 
+    public function requests()
+    {
+        $query = \Drupal::entityQuery('node');
+        $nids = $query->execute();
+
+        $query = \Drupal::entityQuery('user');
+        $uids = $query->execute();
+
+        $query = \Drupal::entityQuery('comment');
+        $cids = $query->execute();
+
+        $markup = 'Node nid : ' . implode(', ',$nids);
+        $markup .= '<br /> User nid : ' . implode(', ',$uids);
+        $markup .= '<br /> Comment nid : ' . implode(', ',$cids);
+        //dsm($nids);
+
+        $build = [
+            '#markup' => $markup
+        ];
+        return $build;
+    }
+
 }
