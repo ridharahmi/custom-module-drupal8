@@ -30,14 +30,24 @@ class DemoController extends ControllerBase
         $query = \Drupal::entityQuery('comment');
         $cids = $query->execute();
 
-        $markup = 'Node nid : ' . implode(', ',$nids);
-        $markup .= '<br /> User nid : ' . implode(', ',$uids);
-        $markup .= '<br /> Comment nid : ' . implode(', ',$cids);
+        $query = \Drupal::entityQuery('webform');
+        $fids = $query->execute();
+
+        $query = \Drupal::entityQuery('node')
+            ->condition('type', 'article')
+            ->condition('uid', 0)
+            ->condition('title', 'Ibidem', 'CONTAINS');
+        $filter_nids = $query->execute();
+
+
+        $markup = 'Node nid : ' . implode(', ', $nids);
+        $markup .= '<br /> User nid : ' . implode(', ', $uids);
+        $markup .= '<br /> Comment nid : ' . implode(', ', $cids);
+        $markup .= '<br /> Webform nid : ' . implode(', ', $fids);
+        $markup .= '<br /> Filter Articles : ' . implode(', ', $filter_nids);
         //dsm($nids);
 
-        $build = [
-            '#markup' => $markup
-        ];
+        $build = ['#markup' => $markup];
         return $build;
     }
 
