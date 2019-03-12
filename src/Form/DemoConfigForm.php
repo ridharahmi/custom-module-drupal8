@@ -4,6 +4,7 @@ namespace Drupal\demo\Form;
 
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\demo\ContactEvent;
 
 
 class DemoConfigForm extends ConfigFormBase
@@ -38,7 +39,6 @@ class DemoConfigForm extends ConfigFormBase
     }
 
 
-
     /**
      * submit form
      */
@@ -51,6 +51,14 @@ class DemoConfigForm extends ConfigFormBase
 
         $config->set('nom', $form_state->getValue('nom'))
             ->set('message', $form_state->getValue('message'));
+
+
+        $dispatcher = \Drupal::service('event_dispatcher');
+        $event = new ContactEvent($config);
+        $dispatcher->dispatch('Demo_Config_Form.save', $event);
+
+        $data = $event->getConfig()->get();
+        $config->merge($data);
 
         $config->save();
 
