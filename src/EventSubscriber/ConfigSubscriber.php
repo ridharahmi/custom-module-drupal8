@@ -16,7 +16,11 @@ class ConfigSubscriber implements EventSubscriberInterface
     public function onConfigSave($event)
     {
         $config = $event->getConfig();
-        dsm($config->get('nom'));
+        //dsm($config->get('nom'));
+        if (strpos($config->get('message'), 'testconfig')) {
+            drupal_set_message('This Message Concerent testconfig');
+            //$config->set('nom', $config->get('nom'). ' __ in Test');
+        }
     }
 
 }

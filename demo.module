@@ -1,0 +1,9 @@
+<?php
+
+
+function demo_node_presave(Drupal\Core\Entity\EntityInterface $node)
+{
+    //dsm('saved ok');
+    $node->title->value .= ' _*_ ';
+}
+
