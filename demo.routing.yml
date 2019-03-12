@@ -21,3 +21,11 @@ demo.requests:
     _title: 'Requests'
   requirements:
     _permission: 'access content'
+
+demo.configuiration:
+      path: '/admin/demo/config'
+      defaults:
+        _form: '\Drupal\demo\Form\DemoConfigForm'
+        _title: 'Form Config backend '
+      requirements:
+        _permission: 'access administration pages'
