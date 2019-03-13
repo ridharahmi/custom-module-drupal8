@@ -9,3 +9,6 @@ version: 8.x
 dependencies:
   - devel
   - devel_generate
+
+
+configure: demo.settings

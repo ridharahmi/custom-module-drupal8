@@ -1,0 +1,12 @@
+/*
+* Custom style css
+*/
+
+#btn-demo {
+    background: #0094f0;
+    color: #fff;
+    font-size: 14px;
+    padding: 5px 20px;
+    border-radius: 0;
+    border: 0;
+}

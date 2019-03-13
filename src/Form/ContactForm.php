@@ -51,8 +51,7 @@ class ContactForm extends FormBase
             '#type' => 'submit',
             '#value' => 'Envoyer le commentaire',
             '#button_type' => 'primary',
-            '#class' => 'btn btn-primary',
-            '#id' => 'submit-btn'
+            '#id' => 'btn-demo'
         );
 
         return $form;

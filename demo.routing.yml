@@ -10,7 +10,7 @@ demo.contact_form:
   path: '/demo/contact_form'
   defaults:
     _form: '\Drupal\demo\Form\ContactForm'
-    _title: 'formulaire contact '
+    _title: 'Form contact '
   requirements:
     _permission: 'access content'
 
@@ -23,9 +23,9 @@ demo.requests:
     _permission: 'access content'
 
 demo.configuiration:
-      path: '/admin/demo/config'
-      defaults:
-        _form: '\Drupal\demo\Form\DemoConfigForm'
-        _title: 'Form Config backend '
-      requirements:
-        _permission: 'access administration pages'
+  path: '/admin/demo/config'
+  defaults:
+    _form: '\Drupal\demo\Form\DemoConfigForm'
+    _title: 'Form Config backend '
+  requirements:
+    _permission: 'access administration pages'

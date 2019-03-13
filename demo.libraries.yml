@@ -1,0 +1,7 @@
+demo_css:
+  version: 1.x
+  css:
+    layout:
+      assets/css/layout.css: {}
+    theme:
+      assets/css/styles.css: {}

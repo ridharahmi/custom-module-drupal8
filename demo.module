@@ -7,3 +7,9 @@ function demo_node_presave(Drupal\Core\Entity\EntityInterface $node)
     $node->title->value .= ' _*_ ';
 }
 
+
+function demo_page_attachments(array &$variables) {
+    $variables['#attached']['library'][] = 'demo/demo_css';
+}
+
+
