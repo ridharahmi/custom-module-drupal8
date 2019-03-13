@@ -32,7 +32,8 @@ class ContactForm extends FormBase
             '#required' => true,
             '#default_value' => ' ',
             '#placeholder' => 'Email',
-            '#wrapper_attributes' => ['class' => 'col-md-6 col-xs-12']
+            '#wrapper_attributes' => ['class' => 'col-md-6 col-xs-12'],
+            '#element_attributes' => ['class' => 'email-demo'],
         );
         $form['comment'] = array(
             '#type' => 'textarea',

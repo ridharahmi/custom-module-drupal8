@@ -1,15 +1,36 @@
 <?php
 
-
+/**
+ * custom node module drupal
+ */
 function demo_node_presave(Drupal\Core\Entity\EntityInterface $node)
 {
     //dsm('saved ok');
     $node->title->value .= ' _*_ ';
 }
 
+/**
+ * custom ass style module
+ * */
 
-function demo_page_attachments(array &$variables) {
-    $variables['#attached']['library'][] = 'demo/demo_css';
+function demo_page_attachments(array &$variables)
+{
+    $variables['#attached']['library'][] = 'demo/demo_style';
 }
 
 
+/**
+ * Implementation of hook_form_alter().
+ *
+ * The function is named modulename_form_alter.
+ */
+function demo_form_alter(&$form, $form_state, $form_id)
+{
+    //dpm($form_id);
+    switch ($form_id) {
+
+        case 'contact_form':
+            $form['actions']['submit']['#attributes'] = array('class' => array('btn-demo'));
+        break;
+    }
+}

@@ -4,9 +4,22 @@
 
 #btn-demo {
     background: #0094f0;
-    color: #fff;
+    color: #ffffff;
     font-size: 14px;
     padding: 5px 20px;
     border-radius: 0;
     border: 0;
+}
+
+#contact-form input, #contact-form textarea {
+    border: 1px solid #0094f0;
+}
+
+.table-demo tr > td {
+    border: 1px solid #0094f0;
+    background: #ffffff;
+}
+.desc-demo{
+    border: 1px solid #0094f0;
+    padding: 15px;
 }

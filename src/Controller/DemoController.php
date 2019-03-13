@@ -50,8 +50,8 @@ class DemoController extends ControllerBase
 
         $node = Node::load(reset($filter_nids));
         $markup .= '<br /><br />';
-        $markup .= '<b>Description Blog :</b> ' . $node->body->value;
-
+        $markup .= '<div class="desc-demo"><b>Description Blog :</b> ' . $node->body->value;
+        $markup .= '</div>';
         //update node
         /*
          * $node->set('title', $node->title->value. '_New_text');
@@ -61,7 +61,7 @@ class DemoController extends ControllerBase
 
 
         $nodes = Node::loadMultiple($filter_nids);
-        $markup .= '<br /><table>';
+        $markup .= '<br /><table class="table-demo">';
         foreach ($nodes as $nod) {
             $markup .= '<tr>';
             $markup .= '<td><b>Blog [' . $nod->nid->value . ' ] </b></td><td>' . $nod->title->value . '</td>';
